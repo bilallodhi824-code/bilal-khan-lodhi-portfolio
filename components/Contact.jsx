@@ -74,13 +74,13 @@ export default function Contact() {
 
       <div className="relative mx-auto max-w-6xl px-5 pb-8 pt-20 sm:px-8 sm:pb-10 sm:pt-28">
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
+          <p className="mb-4 text-xs font-bold uppercase tracking-wider text-rose-300 font-sans">
             Start a conversation
           </p>
-          <h2 className="max-w-4xl text-[clamp(2.25rem,7vw,5rem)] font-black leading-[1.08] tracking-tight text-white">
+          <h2 className="font-display max-w-4xl text-[clamp(2.25rem,7vw,5rem)] font-black leading-[1.08] tracking-tight text-white">
             Let&apos;s build digital excellence together.
           </h2>
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base font-sans">
             Have a project in mind, looking to hire a senior full-stack architect, or discuss an enterprise consultation? Reach out directly.
           </p>
 
@@ -148,15 +148,15 @@ export default function Contact() {
             className="glass rounded-3xl p-6 sm:p-10 space-y-6 max-w-3xl"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white tracking-tight">Direct Project Inquiry</h3>
-              <p className="mt-1 text-xs sm:text-sm text-zinc-400">
+              <h3 className="font-display text-2xl font-bold text-white tracking-tight">Direct Project Inquiry</h3>
+              <p className="mt-1 text-xs sm:text-sm text-zinc-400 font-sans">
                 Send your specifications directly to Bilal&apos;s primary inbox. We typically reply within 24 hours.
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label htmlFor="contact-name" className="block text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
+                <label htmlFor="contact-name" className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 font-sans">
                   Your Name / Organization
                 </label>
                 <input
@@ -166,12 +166,12 @@ export default function Contact() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Sarah Jenkins"
-                  className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy font-sans"
                 />
               </div>
 
               <div>
-                <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
+                <label htmlFor="contact-email" className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 font-sans">
                   Your Email
                 </label>
                 <input
@@ -181,20 +181,20 @@ export default function Contact() {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="sarah@company.com"
-                  className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy"
+                  className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy font-sans"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="contact-type" className="block text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
+              <label htmlFor="contact-type" className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 font-sans">
                 Project Type
               </label>
               <select
                 id="contact-type"
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy font-sans"
               >
                 <option value="Full-Stack Web App">Full-Stack Web Application (React / Next.js / Angular)</option>
                 <option value="Mobile App (Flutter)">Cross-Platform Mobile App (Flutter &amp; Dart)</option>
@@ -205,7 +205,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="contact-message" className="block text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
+              <label htmlFor="contact-message" className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 font-sans">
                 Project Scope &amp; Deliverables
               </label>
               <textarea
@@ -215,7 +215,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Describe your project, timeline, target features, and stack requirements..."
-                className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy"
+                className="mt-2 w-full rounded-xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white placeholder-zinc-500 transition focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy font-sans"
               />
             </div>
 
@@ -229,7 +229,7 @@ export default function Contact() {
               </button>
 
               {formSent && (
-                <span className="font-mono text-xs font-bold text-emerald-400">
+                <span className="font-sans text-xs font-bold text-emerald-400">
                   ✓ Mail client opened. Thank you!
                 </span>
               )}
@@ -238,7 +238,7 @@ export default function Contact() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-20 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-zinc-400 sm:mt-24 sm:flex-row sm:items-center sm:justify-between font-mono">
+        <footer className="mt-20 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-zinc-400 sm:mt-24 sm:flex-row sm:items-center sm:justify-between font-sans">
           <p>© {currentYear} Bilal Khan. All rights reserved.</p>
           <p>
             Designed &amp; Engineered by{" "}

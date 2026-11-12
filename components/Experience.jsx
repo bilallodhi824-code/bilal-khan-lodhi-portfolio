@@ -16,10 +16,10 @@ export default function Experience() {
     <section id="experience" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
       {/* Header */}
       <div className="relative mb-12 sm:mb-16">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300 font-sans">
           Milestones &amp; Background
         </p>
-        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+        <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
           Professional Journey &amp; Leadership
         </h2>
         <span
@@ -85,12 +85,12 @@ export default function Experience() {
                   >
                     {exp.badge}
                   </span>
-                  <span className="text-xs font-semibold text-zinc-400 font-mono">
+                  <span className="text-xs font-semibold text-zinc-400 font-sans">
                     {exp.period}
                   </span>
                 </div>
 
-                <h3 className="mt-3 text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                <h3 className="mt-3 font-display text-xl font-extrabold tracking-tight text-white sm:text-2xl">
                   {exp.role}
                 </h3>
                 <p className="mt-1 text-sm font-semibold text-burgundy-light">

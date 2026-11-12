@@ -50,34 +50,32 @@ How can I assist you with Bilal's work or hiring today?`;
       ? `📜 **محمد بلال خان لودھی کے تصدیق شدہ اسناد:**
 
 1. **Meta Certified Front-End Developer** (Credential ID: \`META-FED-8240-2026\`)
-   - میٹا پلیٹ فارمز اور کورسیرا کی باقاعدہ تصدیق شدہ سند (React 19, JavaScript, Web Performance)۔
-   - 👉 [Download Meta Certificate (PDF)](${profile.resumeUrl})
+   - میٹا پلیٹ فارمز اور کورسیرا کی باقاعدہ تصدیق شدہ اسناد (React 19, JavaScript algorithms, UI/UX Systems)۔
+   - *حفاظتی اصولوں کے پیش نظر پرسنل کریڈینشلز کی خام PDF فائل پبلک ڈاؤن لوڈ کے لیے نہیں رکھی گئی؛ تصدیق میٹا کریڈینشل ID کے ذریعے کی جا سکتی ہے۔*
 
 2. **Applied AI Prompt Engineering** (Credential ID: \`AHCA-VECTONIX-2026-BK\`)
-   - 👉 [Download AI Engineering PDF](${profile.aiCertUrl})
+   - تصدیق شدہ اسناد برائے پرامپٹ انجینئرنگ اور AI سسٹم ڈیزائن (الرد اکیڈمی و ویکٹونکس)۔
 
 3. **Govt. Degree Science & Commerce College Malir Cantt (GDCMC 1979)**`
       : i
-      ? `📜 **Bilal Ke Verified Credentials:**
+      ? `📜 **Bilal Ke Verified Credentials (Know-how):**
 
 1. **Meta Certified Front-End Developer** (\`META-FED-8240-2026\`)
-   - Meta & Coursera ka official verified professional certificate.
-   - 👉 [Download Meta Certificate (PDF)](${profile.resumeUrl})
+   - Meta & Coursera ka official verified professional certificate (React 19, Front-End Architecture, JavaScript Performance).
+   - *Privacy aur security compliance ki wajah se direct PDF download ke bajaye unka credential officially ID ke zariye verify kiya jata hai.*
 
 2. **Applied AI Prompt Engineering** (\`AHCA-VECTONIX-2026-BK\`)
-   - Al-Hakim Computer Academy & Vectonix.
-   - 👉 [Download AI Prompt Engineering PDF](${profile.aiCertUrl})
+   - Al-Hakim Computer Academy & Vectonix verified training.
 
 3. **GDCMC Institutional Record** (Govt. Degree College Malir Cantt)`
       : `📜 **Bilal's Verified Professional Credentials:**
 
 1. **Meta Certified Front-End Developer** (Credential ID: \`META-FED-8240-2026\`)
-   - Authorized by Meta Platforms & Coursera covering React 19, JavaScript algorithms, and performance.
-   - 👉 [Download Official Meta Certificate (PDF)](${profile.resumeUrl})
+   - Authorized by Meta Platforms & Coursera covering React 19, JavaScript algorithms, state architecture, and core web vitals.
+   - *For personal security and privacy of credentials, raw PDF downloads are restricted. Verification is provided through official Meta credential records.*
 
 2. **Applied AI Prompt Engineering** (Credential ID: \`AHCA-VECTONIX-2026-BK\`)
-   - Awarded by Al-Hakim Computer Academy & Vectonix.
-   - 👉 [Download AI Prompt Engineering PDF](${profile.aiCertUrl})
+   - Awarded by Al-Hakim Computer Academy & Vectonix in advanced AI workflows.
 
 3. **Govt. Degree College Malir Cantt (GDCMC 1979)** institutional engineering foundation.`;
   }
@@ -140,18 +138,24 @@ Bilal is a **Senior Full-Stack & Next.js Architect** based in Karachi, Pakistan:
   // Resume / CV
   if (/cv|resume|bio data|biodata|document|pdf|download cv/i.test(n)) {
     return i
-      ? `📄 **Bilal Ka Verified Resume / Meta Certificate:**
+      ? `📄 **Bilal Ka Verified Profile & Accreditation:**
 
-Aap Bilal ka verified official PDF yahan se direct download kar sakte hain:
-👉 **[Download Bilal Khan Meta Certified Resume (PDF)](${profile.resumeUrl})**
+Bilal Khan Lodhi ka verified professional track record aur complete profile is website par darj hai:
+- **Title:** Senior Full-Stack & Next.js Architect
+- **Meta Credential ID:** \`META-FED-8240-2026\`
+- **Live Systems:** 20+ verified production applications (is portfolio me sab live tested hain)
+- **Direct Contact:** Formal credentials confirmation ke liye unke direct WhatsApp ([${profile.whatsappDisplay}](${profile.whatsappLink})) ya email ([${profile.email}](mailto:${profile.email})) par reach out karein.
 
-Is me unke complete professional experience, credentials, education, aur verified production systems darj hain.`
-      : `📄 **Official Resume & Credentials:**
+*Note: Security compliance aur privacy ke tehat credentials live portfolio aur verified credential records ke zariye confirm kiye jaate hain.*`
+      : `📄 **Official Credentials & Profile:**
 
-You can download Muhammad Bilal Khan Lodhi's verified technical credentials directly:
-👉 **[Download Bilal Khan Meta Certified Resume (PDF)](${profile.resumeUrl})**
+Muhammad Bilal Khan Lodhi's engineering track record and verified credentials:
+- **Role:** Senior Full-Stack & Next.js Architect
+- **Meta Platforms Certification ID:** \`META-FED-8240-2026\`
+- **Production Systems:** 20+ live full-stack deployments with verified 100/100 Core Web Vitals.
+- **Verification Inquiries:** Reach out directly via WhatsApp ([${profile.whatsappDisplay}](${profile.whatsappLink})) or email ([${profile.email}](mailto:${profile.email})) for official credentials confirmation.
 
-It includes his full engineering timeline, production systems architecture, and verified credentials.`;
+*Note: To protect private credentials from unauthorized replication, direct PDF downloads are restricted; verified accreditation is provided via official records.*`;
   }
 
   // Mobile Apps & APKs
@@ -236,7 +240,7 @@ Personalized workout routines, daily calorie tracking, hydration logs, and miles
 - ✉️ **ای میل:** [${profile.email}](mailto:${profile.email})
 - 💼 **لنکڈ ان:** [LinkedIn Profile](${profile.linkedin})
 - 💻 **گٹ ہب:** [GitHub Profile](${profile.github})
-- 📄 **سرٹیفکیٹ:** [Download Meta Credential PDF](${profile.resumeUrl})
+- 📜 **تصدیق شدہ سند:** Meta Certified (\`META-FED-8240-2026\`)
 
 آپ واٹس ایپ پر ایک کلک سے ڈائریکٹ میسج بھیج سکتے ہیں!`
       : i
@@ -247,7 +251,7 @@ Aap senior engineering roles, freelance projects, Next.js architecture ya techni
 - ✉️ **Email:** [${profile.email}](mailto:${profile.email})
 - 💼 **LinkedIn:** [Bilal on LinkedIn](${profile.linkedin})
 - 💻 **GitHub:** [bilallodhi824-code](${profile.github})
-- 📄 **Resume / Meta PDF:** [Download Meta Certified PDF](${profile.resumeUrl})
+- 📜 **Credential:** Meta Certified (\`META-FED-8240-2026\`)
 
 *Aap isi waqt upar diye gaye WhatsApp link par click karke direct chat shuru kar sakte hain!*`
       : `📬 **Connect Directly with Bilal:**
@@ -257,7 +261,7 @@ Muhammad Bilal Khan Lodhi is available for senior full-stack roles, Next.js arch
 - ✉️ **Direct Email:** [${profile.email}](mailto:${profile.email})
 - 💼 **LinkedIn:** [Bilal on LinkedIn](${profile.linkedin})
 - 💻 **GitHub:** [bilallodhi824-code](${profile.github})
-- 📄 **Official Credential:** [Download Meta Certified PDF](${profile.resumeUrl})
+- 📜 **Credential:** Meta Certified (\`META-FED-8240-2026\`)
 
 *Click the WhatsApp link above to initiate an instant conversation!*`;
   }
@@ -363,11 +367,11 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
   };
 
   const suggestions = [
-    "📜 Meta Certification?",
-    "📱 Flutter Apps & APKs?",
-    "⚡ Next.js 15 & Stacks?",
+    "📜 Meta Certification",
+    "📱 Flutter Apps & APKs",
+    "⚡ Next.js 15 & Stacks",
     "🚀 Top Live Deployments",
-    "📄 Download Resume (PDF)",
+    "📜 Verified Credentials",
     "📬 Contact & WhatsApp",
   ];
 
@@ -435,7 +439,7 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
                 <div>
                   <div className="flex items-center gap-2">
                     <h3 className="text-sm font-bold text-white">BK AI Assistant</h3>
-                    <span className="rounded-full bg-royal/20 px-2 py-0.5 text-[10px] font-mono font-bold text-royal-light">
+                    <span className="rounded-full bg-royal/20 px-2 py-0.5 text-[10px] font-sans font-bold text-royal-light">
                       v2.5
                     </span>
                   </div>
@@ -483,7 +487,7 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
                   >
                     <div className="whitespace-pre-wrap">{m.text}</div>
                   </div>
-                  <span className="mt-1 px-1 text-[10px] text-zinc-500 font-mono">{m.time}</span>
+                  <span className="mt-1 px-1 text-[10px] text-zinc-500 font-sans">{m.time}</span>
                 </div>
               ))}
 

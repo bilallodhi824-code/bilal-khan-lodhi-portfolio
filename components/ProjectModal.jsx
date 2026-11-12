@@ -100,7 +100,7 @@ export default function ProjectModal({ project, onClose }) {
             <div className="flex max-w-[480px] flex-1 items-center justify-between gap-2 rounded-full border border-white/10 bg-black/60 px-3.5 py-1.5 text-xs text-zinc-300 shadow-inner">
               <div className="flex min-w-0 items-center gap-2">
                 <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-                <span className="truncate font-mono text-[11px] text-zinc-400">
+                <span className="truncate font-sans text-xs text-zinc-300 font-medium">
                   {live || "bk-engine://internal"}
                 </span>
               </div>

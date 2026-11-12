@@ -176,10 +176,10 @@ export default function Navbar() {
             className="group inline-flex shrink-0 items-center gap-2 rounded-full text-sm font-black tracking-tight text-white transition hover:opacity-90 cursor-pointer"
             title={isExpanded ? "Scroll to top" : "Click to expand navigation"}
           >
-            <span className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-full border border-[#9B1B30]/60 bg-[#9B1B30]/20 font-mono text-xs font-black text-rose-300 shadow-[0_0_15px_rgba(155,27,48,0.35)] transition group-hover:scale-105 group-hover:border-[#2563EB] group-hover:text-blue-300">
+            <span className="grid h-7 w-7 sm:h-8 sm:w-8 place-items-center rounded-full border border-[#9B1B30]/60 bg-[#9B1B30]/20 font-display text-xs font-black text-rose-300 shadow-[0_0_15px_rgba(155,27,48,0.35)] transition group-hover:scale-105 group-hover:border-[#2563EB] group-hover:text-blue-300">
               {profile.initials}
             </span>
-            <span className="font-bold tracking-tight text-white">
+            <span className="font-display font-bold tracking-tight text-white">
               {isExpanded ? (profile.shortName || "Bilal Khan") : (profile.shortName || "BK")}
             </span>
           </button>

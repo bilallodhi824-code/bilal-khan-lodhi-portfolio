@@ -23,10 +23,10 @@ export default function About() {
         />
 
         <div className="relative z-10">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
+          <p className="mb-3 text-xs font-bold uppercase tracking-wider text-rose-300">
             Architect Profile & Story
           </p>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
             {aboutData.heading}
           </h2>
           <span

@@ -12,12 +12,12 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-full border border-burgundy/40 bg-burgundy/15 font-mono text-xs font-black text-burgundy-light shadow-[0_0_16px_rgba(155,27,48,0.3)]">
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-burgundy/40 bg-burgundy/15 font-display text-xs font-black text-rose-300 shadow-[0_0_16px_rgba(155,27,48,0.3)]">
               {profile.initials}
             </span>
             <div>
-              <p className="text-sm font-black text-white tracking-wider">BILAL KHAN</p>
-              <p className="text-xs text-zinc-400">Senior Full-Stack &amp; Next.js Architect</p>
+              <p className="font-display text-sm font-black text-white tracking-wider">BILAL KHAN</p>
+              <p className="text-xs text-zinc-400 font-sans">Senior Full-Stack &amp; Next.js Architect</p>
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
           </button>
         </div>
 
-        <div className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-zinc-500 font-mono">
+        <div className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-zinc-400 font-sans">
           © {new Date().getFullYear()} Bilal Khan. All rights reserved. Designed &amp; Engineered by {profile.name}.
         </div>
       </div>

@@ -41,8 +41,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Geist Variable"', "system-ui", "sans-serif"],
-        mono: ['"Geist Mono Variable"', "ui-monospace", "monospace"],
+        sans: ['"Plus Jakarta Sans"', "system-ui", "-apple-system", "sans-serif"],
+        display: ['"Outfit"', '"Plus Jakarta Sans"', "sans-serif"],
+        mono: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
       },
       screens: {
         xs: "480px",

@@ -15,10 +15,10 @@ export default function Services() {
     <section id="services" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
       {/* Section Header */}
       <div className="relative mb-10 sm:mb-14">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
-          BK Architecture Capabilities
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300">
+          Architecture Capabilities
         </p>
-        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+        <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
           Engineering Services &amp; Solutions
         </h2>
         <span
@@ -47,16 +47,16 @@ export default function Services() {
                   <div className="grid h-12 w-12 place-items-center rounded-2xl border border-burgundy/40 bg-burgundy/15 text-burgundy-light shadow-[0_0_20px_rgba(155,27,48,0.25)]">
                     <IconComponent size={22} />
                   </div>
-                  <span className="font-mono text-xs font-semibold tracking-wider text-royal-light uppercase">
+                  <span className="text-xs font-semibold tracking-wide text-royal-light uppercase">
                     {svc.tagline}
                   </span>
                 </div>
 
-                <h3 className="mt-5 text-xl sm:text-2xl font-bold tracking-tight text-white">
+                <h3 className="mt-5 text-xl sm:text-2xl font-bold tracking-tight text-white font-display">
                   {svc.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-zinc-300 font-sans">
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-zinc-300">
                   {svc.description}
                 </p>
 
@@ -65,7 +65,7 @@ export default function Services() {
                   {svc.tech?.map((t) => (
                     <li
                       key={t}
-                      className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-mono text-zinc-300"
+                      className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-zinc-300"
                     >
                       {t}
                     </li>

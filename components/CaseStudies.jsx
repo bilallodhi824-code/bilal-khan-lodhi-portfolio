@@ -23,10 +23,10 @@ export default function CaseStudies() {
       <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8">
         {/* Section Header */}
         <div className="relative mb-10 sm:mb-14">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
+          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300 font-sans">
             Engineering Case Studies
           </p>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
             Architectural Deep Dives
           </h2>
           <span
@@ -77,10 +77,10 @@ export default function CaseStudies() {
                     {activeStudy.badge}
                   </span>
                 </div>
-                <h3 className="mt-2 text-2xl sm:text-3xl font-extrabold text-white">
+                <h3 className="mt-2 font-display text-2xl sm:text-3xl font-extrabold text-white">
                   {activeStudy.title}
                 </h3>
-                <p className="mt-1 text-sm text-zinc-400 font-medium">
+                <p className="mt-1 text-sm text-zinc-300 font-medium">
                   {activeStudy.tagline}
                 </p>
               </div>
@@ -102,7 +102,7 @@ export default function CaseStudies() {
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {/* Problem */}
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-rose-300">
+                <span className="font-sans text-xs font-bold uppercase tracking-wider text-rose-300">
                   01 · The Bottleneck
                 </span>
                 <h4 className="mt-2 text-base font-bold text-white">Challenge</h4>
@@ -113,7 +113,7 @@ export default function CaseStudies() {
 
               {/* Solution */}
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-royal-light">
+                <span className="font-sans text-xs font-bold uppercase tracking-wider text-royal-light">
                   02 · Engineering Architecture
                 </span>
                 <h4 className="mt-2 text-base font-bold text-white">Solution</h4>
@@ -124,7 +124,7 @@ export default function CaseStudies() {
 
               {/* Result */}
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-burgundy-light">
+                <span className="font-sans text-xs font-bold uppercase tracking-wider text-rose-300">
                   03 · Verified Impact
                 </span>
                 <h4 className="mt-2 text-base font-bold text-white">Result</h4>
@@ -138,10 +138,10 @@ export default function CaseStudies() {
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 border-t border-white/10 pt-6">
               {activeStudy.metrics.map((metric) => (
                 <div key={metric.label} className="rounded-xl bg-black/40 p-3 sm:p-4 text-center">
-                  <p className="font-mono text-sm sm:text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-burgundy-light to-royal-light">
+                  <p className="font-display text-lg sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-300 to-blue-300">
                     {metric.value}
                   </p>
-                  <p className="mt-1 text-[11px] font-medium text-zinc-400">
+                  <p className="mt-1 text-xs font-medium text-zinc-400">
                     {metric.label}
                   </p>
                 </div>

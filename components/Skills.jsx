@@ -15,11 +15,11 @@ export default function Skills() {
     <section id="skills" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
       {/* Section Header */}
       <div className="relative mb-10 sm:mb-14">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
-          What I work with
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300">
+          Core Expertise
         </p>
-        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-          Skills &amp; toolset
+        <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+          Skills &amp; Technical Toolset
         </h2>
         <span
           aria-hidden="true"

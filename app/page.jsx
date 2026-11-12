@@ -29,7 +29,7 @@ export default function Page() {
 
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-xl focus:bg-gradient-to-r focus:from-burgundy focus:to-royal focus:px-4 focus:py-2.5 focus:font-mono focus:text-xs focus:font-bold focus:text-white focus:shadow-2xl focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-xl focus:bg-gradient-to-r focus:from-burgundy focus:to-royal focus:px-4 focus:py-2.5 focus:font-sans focus:text-xs focus:font-bold focus:text-white focus:shadow-2xl focus:outline-none"
       >
         Skip to main content
       </a>

@@ -38,10 +38,10 @@ export default function Projects() {
     <section id="projects" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
       {/* Header */}
       <div className="relative mb-10 sm:mb-14">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy-light font-mono">
-          Verified Systems &amp; Deployments
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300">
+          Selected Portfolio
         </p>
-        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+        <h2 className="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
           Live Engineered Works ({liveProjects.length})
         </h2>
         <span
@@ -101,10 +101,10 @@ export default function Projects() {
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="mt-3.5 text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                  <h3 className="mt-3.5 font-display text-xl font-extrabold tracking-tight text-white sm:text-2xl">
                     {project.title}
                   </h3>
-                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-zinc-300 font-sans">
+                  <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-zinc-300">
                     {project.description}
                   </p>
 
@@ -113,7 +113,7 @@ export default function Projects() {
                     {project.tags?.map((tag) => (
                       <li
                         key={tag}
-                        className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-mono text-zinc-300"
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-zinc-300"
                       >
                         {tag}
                       </li>

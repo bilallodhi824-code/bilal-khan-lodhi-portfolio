@@ -60,7 +60,7 @@ export default function Preloader({ onReveal }) {
             className="relative flex flex-col items-center"
           >
             <div className="flex items-center gap-2">
-              <span className="font-mono text-5xl sm:text-6xl font-black tracking-tight text-white drop-shadow-[0_4px_24px_rgba(255,255,255,0.2)]">
+              <span className="font-display text-5xl sm:text-6xl font-black tracking-tight text-white drop-shadow-[0_4px_24px_rgba(255,255,255,0.2)]">
                 {profile.initials}
               </span>
               <span className="h-3.5 w-3.5 rounded-full bg-gradient-to-r from-[#9B1B30] to-[#2563EB] shadow-[0_0_20px_#2563EB]" />
@@ -68,8 +68,8 @@ export default function Preloader({ onReveal }) {
 
             <div className="mt-3 flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB] animate-pulse" />
-              <span className="font-mono text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-zinc-400 uppercase">
-                BK SYSTEMS ARCHITECTURE
+              <span className="font-sans text-xs font-bold tracking-wider text-zinc-300 uppercase">
+                BILAL KHAN LODHI
               </span>
             </div>
           </motion.div>
@@ -81,12 +81,12 @@ export default function Preloader({ onReveal }) {
             transition={{ duration: 0.4, delay: 0.15 }}
             className="relative mt-9 flex flex-col items-center gap-2.5 w-64 sm:w-80"
           >
-            <div className="flex w-full items-center justify-between font-mono text-[11px]">
-              <span className="text-zinc-400 tracking-wider flex items-center gap-1.5">
+            <div className="flex w-full items-center justify-between font-sans text-xs">
+              <span className="text-zinc-300 tracking-wide flex items-center gap-1.5 font-medium">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#9B1B30] animate-ping" />
-                INITIALIZING SYSTEM
+                Preparing Portfolio Experience
               </span>
-              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-300 to-blue-400 text-xs sm:text-sm tracking-wider font-mono">
+              <span className="font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-rose-300 to-blue-400 text-sm tracking-wide">
                 {percent}%
               </span>
             </div>
@@ -98,9 +98,9 @@ export default function Preloader({ onReveal }) {
               />
             </div>
 
-            <div className="flex w-full items-center justify-between font-mono text-[9px] text-zinc-500 mt-0.5">
-              <span>NEXT.JS 15 · REACT 19</span>
-              <span>100/100 VITALS VERIFIED</span>
+            <div className="flex w-full items-center justify-between font-sans text-[11px] text-zinc-400 mt-1 font-medium">
+              <span>Full-Stack &amp; Next.js Architect</span>
+              <span>Karachi, Pakistan</span>
             </div>
           </motion.div>
         </motion.div>
