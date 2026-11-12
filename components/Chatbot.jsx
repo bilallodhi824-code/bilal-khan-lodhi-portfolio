@@ -375,16 +375,96 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
     "📬 Contact & WhatsApp",
   ];
 
+  // Formatter helper to render rich markdown cleanly without third-party dependencies
+  const renderMessageContent = (content) => {
+    const lines = content.split("\n");
+    return lines.map((line, lineIdx) => {
+      // Process bold, backticks, and links
+      const parts = [];
+      let remaining = line;
+      let keyCounter = 0;
+
+      // Regular expression for [label](url), **bold**, and `code`
+      const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|`([^`]+)`/g;
+      let lastIndex = 0;
+      let match;
+
+      while ((match = regex.exec(line)) !== null) {
+        if (match.index > lastIndex) {
+          parts.push(line.substring(lastIndex, match.index));
+        }
+
+        if (match[1] && match[2]) {
+          // Link
+          parts.push(
+            <a
+              key={`link-${keyCounter++}`}
+              href={match[2]}
+              target={match[2].startsWith("http") ? "_blank" : undefined}
+              rel={match[2].startsWith("http") ? "noreferrer" : undefined}
+              className="text-blue-400 hover:text-blue-300 font-semibold underline underline-offset-2 transition break-all"
+            >
+              {match[1]}
+            </a>
+          );
+        } else if (match[3]) {
+          // Bold
+          parts.push(
+            <strong key={`bold-${keyCounter++}`} className="font-bold text-white">
+              {match[3]}
+            </strong>
+          );
+        } else if (match[4]) {
+          // Inline Code
+          parts.push(
+            <code
+              key={`code-${keyCounter++}`}
+              className="rounded bg-white/10 px-1.5 py-0.5 text-xs text-rose-300 font-sans font-semibold"
+            >
+              {match[4]}
+            </code>
+          );
+        }
+
+        lastIndex = regex.lastIndex;
+      }
+
+      if (lastIndex < line.length) {
+        parts.push(line.substring(lastIndex));
+      }
+
+      return (
+        <div key={lineIdx} className={line.trim() === "" ? "h-2" : "leading-relaxed"}>
+          {parts.length > 0 ? parts : "\u00A0"}
+        </div>
+      );
+    });
+  };
+
   return (
     <>
+      {/* Mobile Backdrop Overlay when Chat is Open */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-[58] bg-black/60 backdrop-blur-sm sm:hidden"
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Floating Launcher Button */}
-      <div className="fixed bottom-5 right-5 z-40 sm:bottom-6 sm:right-6">
+      <div className="fixed bottom-5 right-5 z-[59] sm:bottom-6 sm:right-6">
         <motion.button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
-          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-burgundy via-burgundy-vibrant to-royal text-white shadow-[0_8px_32px_rgba(155,27,48,0.55)] focus:outline-none focus:ring-2 focus:ring-burgundy focus:ring-offset-2 focus:ring-offset-ink transition-transform"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-burgundy via-burgundy-vibrant to-royal text-white shadow-[0_8px_32px_rgba(155,27,48,0.55)] focus:outline-none focus:ring-2 focus:ring-burgundy focus:ring-offset-2 focus:ring-offset-ink transition-transform cursor-pointer"
           aria-label={open ? "Close BK AI Assistant" : "Open BK AI Assistant"}
         >
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
@@ -423,34 +503,34 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.94 }}
+            initial={{ opacity: 0, y: 16, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.94 }}
+            exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ type: "spring", damping: 28, stiffness: 350 }}
-            className="fixed bottom-24 right-4 sm:right-6 z-40 flex h-[580px] w-[calc(100vw-2rem)] max-w-[420px] flex-col overflow-hidden rounded-3xl border border-white/15 bg-[#0C0D12]/98 shadow-[0_16px_48px_rgba(0,0,0,0.85)] backdrop-blur-2xl"
+            className="fixed bottom-20 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-24 z-[60] flex h-[min(560px,calc(100dvh-6.5rem))] w-auto sm:w-[420px] flex-col overflow-hidden rounded-3xl border border-white/15 bg-[#0C0D12]/98 shadow-[0_24px_64px_rgba(0,0,0,0.92)] backdrop-blur-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-4">
+            <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-4 shrink-0">
               <div className="flex items-center gap-3">
-                <div className="relative grid h-10 w-10 place-items-center rounded-2xl border border-burgundy/40 bg-burgundy/15 text-burgundy-light shadow-[0_0_16px_rgba(155,27,48,0.3)]">
+                <div className="relative grid h-10 w-10 place-items-center rounded-2xl border border-burgundy/40 bg-burgundy/15 text-rose-300 shadow-[0_0_16px_rgba(155,27,48,0.3)]">
                   <Bot size={20} />
-                  <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#0C0D12] bg-royal" />
+                  <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#0C0D12] bg-[#2563EB]" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-sm font-bold text-white">BK AI Assistant</h3>
+                    <h3 className="font-display text-sm font-bold text-white">BK AI Assistant</h3>
                     <span className="rounded-full bg-royal/20 px-2 py-0.5 text-[10px] font-sans font-bold text-royal-light">
                       v2.5
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-400">Muhammad Bilal Khan Lodhi</p>
+                  <p className="text-[11px] text-zinc-400 font-sans">Muhammad Bilal Khan Lodhi</p>
                 </div>
               </div>
 
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="grid h-8 w-8 place-items-center rounded-full text-zinc-400 hover:bg-white/10 hover:text-white transition"
+                className="grid h-8 w-8 place-items-center rounded-full text-zinc-400 hover:bg-white/10 hover:text-white transition cursor-pointer"
                 aria-label="Close chat"
               >
                 <X size={16} />
@@ -458,13 +538,13 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
             </div>
 
             {/* Quick Suggestion Chips */}
-            <div className="flex items-center gap-1.5 overflow-x-auto border-b border-white/5 bg-black/40 px-3 py-2 scrollbar-none">
+            <div className="flex items-center gap-1.5 overflow-x-auto border-b border-white/5 bg-black/40 px-3 py-2 scrollbar-none shrink-0">
               {suggestions.map((s, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => handleSend(s)}
-                  className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-zinc-300 hover:border-burgundy hover:bg-burgundy/15 hover:text-burgundy-light transition"
+                  className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-zinc-300 hover:border-burgundy hover:bg-burgundy/15 hover:text-rose-300 transition cursor-pointer"
                 >
                   {s}
                 </button>
@@ -472,29 +552,29 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
             </div>
 
             {/* Messages Body */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs sm:text-[13px]">
               {messages.map((m) => (
                 <div
                   key={m.id}
                   className={`flex flex-col ${m.sender === "user" ? "items-end" : "items-start"}`}
                 >
                   <div
-                    className={`max-w-[88%] rounded-2xl px-4 py-3 text-xs sm:text-[13px] leading-relaxed ${
+                    className={`max-w-[88%] rounded-2xl px-4 py-3 leading-relaxed break-words ${
                       m.sender === "user"
                         ? "bg-gradient-to-r from-burgundy to-burgundy-vibrant text-white font-semibold rounded-br-none shadow-[0_4px_16px_rgba(155,27,48,0.4)]"
-                        : "border border-white/10 bg-white/[0.05] text-zinc-200 rounded-bl-none prose prose-invert prose-xs"
+                        : "border border-white/10 bg-[#14151D] text-zinc-200 rounded-bl-none shadow-md"
                     }`}
                   >
-                    <div className="whitespace-pre-wrap">{m.text}</div>
+                    {renderMessageContent(m.text)}
                   </div>
                   <span className="mt-1 px-1 text-[10px] text-zinc-500 font-sans">{m.time}</span>
                 </div>
               ))}
 
               {typing && (
-                <div className="flex items-center gap-1.5 rounded-2xl border border-white/10 bg-white/[0.05] px-4 py-3 text-zinc-400 w-fit">
-                  <Sparkles size={14} className="text-burgundy-light animate-spin" />
-                  <span className="text-xs">BK AI is formulating response...</span>
+                <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-[#14151D] px-4 py-3 text-zinc-400 w-fit">
+                  <Sparkles size={14} className="text-rose-300 animate-spin" />
+                  <span className="text-xs font-sans">BK AI is formulating response...</span>
                 </div>
               )}
 
@@ -507,19 +587,19 @@ I can answer anything about Muhammad Bilal Khan Lodhi's **20+ live systems**, Me
                 e.preventDefault();
                 handleSend();
               }}
-              className="border-t border-white/10 bg-black/50 p-3 flex items-center gap-2"
+              className="border-t border-white/10 bg-black/60 p-3 flex items-center gap-2 shrink-0"
             >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about Bilal, Next.js architecture, Meta certificate..."
-                className="flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:border-burgundy focus:outline-none focus:ring-1 focus:ring-burgundy"
+                className="flex-1 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs text-white placeholder-zinc-500 focus:border-[#2563EB] focus:outline-none focus:ring-1 focus:ring-[#2563EB] font-sans"
               />
               <button
                 type="submit"
                 disabled={!input.trim()}
-                className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-r from-burgundy to-royal text-white transition hover:scale-105 active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-r from-burgundy to-royal text-white transition hover:scale-105 active:scale-95 disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
                 aria-label="Send message"
               >
                 <Send size={15} />

@@ -16,34 +16,58 @@ export default function Navbar() {
   const hoverTimerRef = useRef(null);
   const lastScrollYRef = useRef(0);
 
-  // Active section tracking via IntersectionObserver
+  // Reliable scroll position detector for active section (handles tall sections like #projects perfectly)
   useEffect(() => {
-    const sectionIds = ["top", ...navLinks.map((l) => l.href.slice(1))];
-    const elements = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+    const handleScrollSpy = () => {
+      const scrollPosition = window.scrollY + 140;
+      const sectionIds = ["top", ...navLinks.map((l) => l.href.slice(1))];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-          setActiveSection(`#${visible.target.id}`);
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (scrollPosition >= top - 60) {
+            setActiveSection(id === "top" ? "#top" : `#${id}`);
+            break;
+          }
         }
-      },
-      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.15, 0.4] }
-    );
+      }
+    };
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy();
+    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, []);
 
-  // Smooth scroll handler without jitter
+  // Handle direct hash navigation on initial load or hashchange
+  useEffect(() => {
+    const scrollToHash = () => {
+      if (typeof window !== "undefined" && window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(() => {
+            if (window.__lenis) {
+              window.__lenis.scrollTo(target, { offset: -80, duration: 1 });
+            } else {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          }, 350);
+        }
+      }
+    };
+
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
+  // Scrolling behavior: keep expanded while scrolling, smoothly contract after user stops
   useEffect(() => {
     const onScroll = () => {
       const currentY = window.scrollY;
 
-      // Expand when user scrolls
-      if (Math.abs(currentY - lastScrollYRef.current) > 3) {
+      if (Math.abs(currentY - lastScrollYRef.current) > 2) {
         setIsScrolling(true);
         lastScrollYRef.current = currentY;
       }
@@ -52,10 +76,10 @@ export default function Navbar() {
         clearTimeout(scrollTimerRef.current);
       }
 
-      // After 2.2 seconds of stillness, contract back if not hovering or locked
+      // After 2.5s of stillness, smoothly contract back if not hovering or locked
       scrollTimerRef.current = setTimeout(() => {
         setIsScrolling(false);
-      }, 2200);
+      }, 2500);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -93,7 +117,7 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Hover state with grace period to prevent rapid flickering
+  // Hover state with grace period
   const handleMouseEnter = () => {
     if (hoverTimerRef.current) {
       clearTimeout(hoverTimerRef.current);
@@ -113,7 +137,6 @@ export default function Navbar() {
   const handleNavClick = useCallback((e, href) => {
     e.preventDefault();
     setMobileOpen(false);
-    setIsManuallyExpanded(false);
 
     if (href === "#top") {
       if (typeof window !== "undefined" && window.__lenis) {
@@ -121,13 +144,15 @@ export default function Navbar() {
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
+      setActiveSection("#top");
       return;
     }
 
     const target = document.querySelector(href);
     if (target) {
+      setActiveSection(href);
       if (typeof window !== "undefined" && window.__lenis) {
-        window.__lenis.scrollTo(target, { offset: -70, duration: 1.1 });
+        window.__lenis.scrollTo(target, { offset: -80, duration: 1.1 });
       } else {
         target.scrollIntoView({ behavior: "smooth" });
       }
@@ -143,7 +168,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4 pointer-events-none">
       <div className="mx-auto flex justify-center">
-        {/* Single Continuous Morphing Dynamic Island Capsule (No unmounting/flicker) */}
+        {/* Dynamic Island Capsule Component */}
         <motion.nav
           ref={navRef}
           layout
@@ -156,13 +181,13 @@ export default function Navbar() {
             if (!isExpanded) setIsManuallyExpanded(true);
           }}
           aria-label="Main navigation"
-          className={`pointer-events-auto relative flex items-center rounded-full border border-white/15 bg-[#0C0D12]/92 shadow-[0_16px_40px_rgba(0,0,0,0.85)] backdrop-blur-2xl transition-all duration-300 ${
+          className={`pointer-events-auto relative flex items-center rounded-full border border-white/15 bg-[#0C0D12]/95 shadow-[0_16px_40px_rgba(0,0,0,0.85)] backdrop-blur-2xl transition-all duration-300 ${
             isExpanded
               ? "min-h-[48px] w-full max-w-md justify-between gap-2 px-3 py-1.5 sm:px-4 md:w-fit md:max-w-none md:justify-center md:gap-4 lg:gap-6"
               : "min-h-[42px] w-auto gap-2.5 px-3.5 py-1.5 cursor-pointer hover:border-[#2563EB]/70 hover:bg-[#14151D] hover:scale-105 active:scale-95"
           }`}
         >
-          {/* Brand Monogram Crest (Unified across both states) */}
+          {/* Brand Monogram Crest */}
           <button
             type="button"
             onClick={(e) => {
@@ -192,7 +217,7 @@ export default function Navbar() {
             </span>
           )}
 
-          {/* Expanded State: Links & CTA */}
+          {/* Expanded State: Navigation Links & Actions */}
           {isExpanded && (
             <>
               {/* Desktop Nav Links */}

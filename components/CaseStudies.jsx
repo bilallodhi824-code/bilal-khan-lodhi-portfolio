@@ -9,7 +9,7 @@ export default function CaseStudies() {
   const activeStudy = caseStudies.find((c) => c.id === selectedId) || caseStudies[0];
 
   return (
-    <section id="case-studies" className="relative border-t border-white/10 py-24 sm:py-32 overflow-hidden bg-[#0C0D12]">
+    <section id="case-studies" className="relative border-t border-white/10 py-24 sm:py-32 overflow-hidden bg-[#0C0D12] scroll-mt-24">
       {/* Ambient background glows */}
       <div
         aria-hidden="true"

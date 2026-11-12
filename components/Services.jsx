@@ -12,7 +12,7 @@ const iconMap = {
 
 export default function Services() {
   return (
-    <section id="services" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
+    <section id="services" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32 scroll-mt-24">
       {/* Section Header */}
       <div className="relative mb-10 sm:mb-14">
         <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300">

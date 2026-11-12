@@ -13,7 +13,7 @@ export default function Experience() {
   const scaleY = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
 
   return (
-    <section id="experience" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32">
+    <section id="experience" className="mx-auto max-w-6xl px-5 pb-24 sm:px-8 sm:pb-32 scroll-mt-24">
       {/* Header */}
       <div className="relative mb-12 sm:mb-16">
         <p className="mb-2 text-xs font-bold uppercase tracking-wider text-rose-300 font-sans">

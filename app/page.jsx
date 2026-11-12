@@ -39,7 +39,7 @@ export default function Page() {
       <BackgroundMesh />
       <Navbar />
 
-      <main id="main" className="relative z-10 w-full overflow-hidden bg-ink">
+      <main id="main" className="relative z-10 w-full overflow-x-clip bg-ink">
         <Hero />
         <Highlights />
         <About />
